@@ -44,6 +44,41 @@ TEST_CASE("test_for_div", "[div]"){
   REQUIRE(op_test_div.x == Approx(2.0f));
   REQUIRE(op_test_div.y == Approx(1.5f));
 }
+TEST_CASE("test_free_add", "[add]"){
+  Vec2 a{1.4f, 2.6f};
+  Vec2 b{-4.2f, 5.6f};
+  Vec2 res = a + b;
+  REQUIRE(res.x == Approx(-2.8f));
+  REQUIRE(res.y == Approx(8.2f));
+}
+TEST_CASE("test_free_sub", "[sub]"){
+  Vec2 a{1.4f, 2.6f};
+  Vec2 b{-4.2f, 5.6f};
+  Vec2 res = a - b;
+  REQUIRE(res.x == Approx(5.6f));
+  REQUIRE(res.y == Approx(-3.0f));
+}
+TEST_CASE("test_free_mult", "[mult_free]"){
+  Vec2 a{4.0f, 3.0f};
+  float s = 2.5f;
+  Vec2 res = a * s;
+  REQUIRE(res.x == Approx(10.0f));
+  REQUIRE(res.y == Approx(7.5f));
+}
+TEST_CASE("test_free_mult_reverse", "[mult_free_reverse]"){
+  Vec2 a{4.0f, 3.0f};
+  float s = 2.5f;
+  Vec2 res = s * a;
+  REQUIRE(res.x == Approx(10.0f));
+  REQUIRE(res.y == Approx(7.5f));
+}
+TEST_CASE("test_free_div", "[div_free]"){
+  Vec2 a{4.0f, 3.0f};
+  float s = 2.0f;
+  Vec2 res = a / s;
+  REQUIRE(res.x == Approx(2.0f));
+  REQUIRE(res.y == Approx(1.5f));
+}
 
 int main(int argc, char *argv[])
 {

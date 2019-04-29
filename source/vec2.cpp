@@ -26,3 +26,38 @@ Vec2& Vec2::operator/=(float s){
 
     return *this;
 }
+Vec2 operator+(Vec2 const& u , Vec2 const& v){
+    Vec2 res;
+    res.x = u.x + v.x;
+    res.y = u.y + v.y;
+
+    return res;
+}
+Vec2 operator-(Vec2 const& u , Vec2 const& v){
+    Vec2 res;
+    res.x = u.x - v.x;
+    res.y = u.y +-v.y;
+
+    return res;
+}
+Vec2 operator*(Vec2 const& v , float s){
+    Vec2 res;
+    res.x = v.x * s;
+    res.y = v.y * s;
+
+    return res;
+}
+Vec2 operator/(Vec2 const& v , float s){
+    Vec2 res;
+    res.x = v.x / s;
+    res.y = v.y / s;
+
+    return res;
+}
+Vec2 operator*(float s , Vec2 const& v){
+    Vec2 res;
+    res.x = v.x * s;
+    res.y = v.y * s;
+
+    return res;
+}
