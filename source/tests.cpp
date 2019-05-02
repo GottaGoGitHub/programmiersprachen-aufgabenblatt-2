@@ -132,6 +132,56 @@ TEST_CASE("test_for_mat_mult", "[mat2_mult]"){
   REQUIRE(a.e_11 == 13);
 }
 
+//determinant
+TEST_CASE("test_det", "[det]"){
+  Mat2 a{1, 2, 3, 4};
+  float res = det(a);
+  REQUIRE(res == -2);
+}
+//mat2 * vec2
+TEST_CASE("test_mat_multwith_vec", "[matmult]"){
+  Mat2 a{1, 2, 3, 4};
+  Vec2 b{2, -2};
+  Vec2 res = a * b;
+  REQUIRE(res.x == -2);
+  REQUIRE(res.y == -2);
+}
+TEST_CASE("test_vec_multwith_mat", "[vecmatmult]"){
+  //not possible alwys returns input vec2
+  Mat2 a{1, 2, 3, 4};
+  Vec2 b{2, -2};
+  Vec2 res = b * a;
+  REQUIRE(res.x == b.x);
+  REQUIRE(res.y == b.y);
+}
+//inversion
+TEST_CASE("test_for_inversion", "[inverse]"){
+  Mat2 a{2, -3, 1, 5};
+  Mat2 res = inverse(a);
+  REQUIRE(res.e_00 == Approx(0.3846153846153f));
+  REQUIRE(res.e_10 == Approx(0.2307692307692f));
+  REQUIRE(res.e_01 == Approx(-0.076923076923f));
+  REQUIRE(res.e_11 == Approx(0.1538461538461f));
+}
+//transpose
+TEST_CASE("test_for_transposion", "[transpose]"){
+  Mat2 a{1, 2, 3, 4};
+  Mat2 res = transpose(a);
+  REQUIRE(res.e_00 == a.e_00);
+  REQUIRE(res.e_10 == a.e_01);
+  REQUIRE(res.e_01 == a.e_10);
+  REQUIRE(res.e_11 == a.e_11);
+}
+//rotation
+TEST_CASE("test_for_rotation", "[rotation]"){
+  float phi = 0.5;
+  Mat2 rot = make_rotation_mat2(phi);
+  REQUIRE(rot.e_00 == Approx(cos(0.5)));
+  REQUIRE(rot.e_10 == Approx(-sin(0.5)));
+  REQUIRE(rot.e_01 == Approx(sin(0.5)));
+  REQUIRE(rot.e_11 == Approx(cos(0.5)));
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
