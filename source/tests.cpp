@@ -4,7 +4,7 @@
 #include "vec2.cpp"
 #include "mat2.hpp"
 #include "mat2.cpp"
-
+#include "color.hpp"
 
 
 
@@ -180,6 +180,17 @@ TEST_CASE("test_for_rotation", "[rotation]"){
   REQUIRE(rot.e_10 == Approx(-sin(0.5)));
   REQUIRE(rot.e_01 == Approx(sin(0.5)));
   REQUIRE(rot.e_11 == Approx(cos(0.5)));
+}
+//rgb 
+TEST_CASE("test_rgb", "[rgb]"){
+  rgb a;
+  rgb b{0.2, 0.5, 0.65};
+  REQUIRE(a.r == Approx(0.5f));
+  REQUIRE(a.g == Approx(0.5f));
+  REQUIRE(a.b== Approx(0.5f));
+  REQUIRE(b.r == Approx(0.2));
+  REQUIRE(b.g == Approx(0.5));
+  REQUIRE(b.b == Approx(0.65));
 }
 
 int main(int argc, char *argv[])
