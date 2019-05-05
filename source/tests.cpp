@@ -5,7 +5,7 @@
 #include "mat2.hpp"
 #include "mat2.cpp"
 #include "color.hpp"
-
+#include "rectangle.hpp"
 
 
 TEST_CASE("test_for_init", "[vec2]"){
@@ -192,6 +192,8 @@ TEST_CASE("test_rgb", "[rgb]"){
   REQUIRE(b.g == Approx(0.5));
   REQUIRE(b.b == Approx(0.65));
 }
+//according to 2.8 no tests for rec and circ init needed
+
 
 int main(int argc, char *argv[])
 {
