@@ -1,5 +1,6 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
+#include <cmath>
 #include "vec2.hpp"
 
 class Circle{
@@ -9,9 +10,12 @@ class Circle{
         Circle(Vec2 const& a, float const& radius):
         center_{a}, radius_{radius} {}
     public:
-
+        float circumference(Circle circ){
+            float res = 2 * M_PI * circ.radius_;
+            return res;
+        }
     private:
-        float diameter, radius_;
+        float radius_;
         Vec2 center_;
 };
 

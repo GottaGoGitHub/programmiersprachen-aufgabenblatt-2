@@ -11,7 +11,12 @@ class Rectangle{
         min_{a}, max_{a + b} {}
 
     public: //methods
-        
+        float circumference(Rectangle rec){
+            float a = rec.max_.x - rec.min_.x;
+            float b = rec.max_.y - rec.min_.y;
+            float res = 2 * a * b;
+            return res;
+        }
     private:
         float length, height;
         Vec2 min_, max_, center;

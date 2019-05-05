@@ -6,6 +6,7 @@
 #include "mat2.cpp"
 #include "color.hpp"
 #include "rectangle.hpp"
+#include "circle.hpp"
 
 
 TEST_CASE("test_for_init", "[vec2]"){
@@ -192,9 +193,32 @@ TEST_CASE("test_rgb", "[rgb]"){
   REQUIRE(b.g == Approx(0.5));
   REQUIRE(b.b == Approx(0.65));
 }
-//according to 2.8 no tests for rec and circ init needed
+//according to 2.8 no tests for rec and circ1 init needed
+TEST_CASE("test_rec_circumference", "[rec_circumference]"){
+  Vec2 a{1, 1};
+  Vec2 b{2, 2};
+  Rectangle rec1{a, b};
+  Rectangle rec2;
+  REQUIRE(rec1.circumference(rec1) == Approx(8));
+  REQUIRE(rec2.circumference(rec2) == 2);
+}
+TEST_CASE("test_circ_circumference", "[circ_circumference]"){
+  Vec2 center{5, 5};
+  float radius = 3.5;
+  Circle circ1{center, radius};
+  Circle circ2;
+  REQUIRE(circ1.circumference(circ1) == Approx(21.991148575129));
+  REQUIRE(circ2.circumference(circ2) == Approx(2 * M_PI));
+}
+/*
+circumference sollte nicht mit const& implementiert werden, da es dem Compiler verspricht,
+dass das Objekt auf dem es angewendet wird nicht mehr geändert wird. Könnte aber in unserem
+Fall durchaus sein.
 
-
+Unterschied Funktion / Methode:
+Für beide gilt: Das Versprechen, dass das Objekt nicht verändert wird, auf dem sie aufgerufen wird
+Für methoden gilt zusätzlich: Referenz auf const-Objekt „const-Referenz“ sehr häufig bei „callbyreference“ für benutzerdefinierte Datentypen
+*/
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
