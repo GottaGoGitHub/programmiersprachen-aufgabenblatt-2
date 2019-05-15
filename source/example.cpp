@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 
     Vec2 circle_center{550, 300};
     Circle circle{circle_center, 100, red};
-    circle.draw(win, red);
+    circle.draw(win, red, 3.5);
 
     Vec2 ist_er_schon_drin{175, 210};
     if(rec.isInside(ist_er_schon_drin) == true){
