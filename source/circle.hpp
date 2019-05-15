@@ -33,6 +33,14 @@ class Circle{
 		        window.draw_line(center_.x + (radius_*sin(grad1)), center_.y + (radius_*cos(grad1)), center_.x + (radius_*sin(grad2)), center_.y + (radius_*cos(grad2)), color_.r, color_.g, color_.b, thickness);
 	        }
         }
+        bool isInside(Vec2 const& point){
+            bool inside = false;
+            float distance = sqrt(pow((point.x - center_.x), 2) + pow((point.y - center_.y), 2));
+            if(distance <= radius_){
+                inside = true;
+            }
+            return inside;
+        }
     private:
         float radius_;
         Vec2 center_;

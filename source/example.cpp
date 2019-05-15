@@ -53,9 +53,16 @@ int main(int argc, char* argv[])
     Rectangle rec{a, b, light_blue};
     rec.draw(win, rec, light_blue, thickness);
 
+    
+
     Vec2 circle_center{550, 300};
     Circle circle{circle_center, 100, red};
     circle.draw(win, red, 3.5);
+
+    Vec2 point{500, 250}; 
+    if(circle.isInside(point)==true){
+      win.draw_point(point.x, point.y, 1.0, 1.0, 1.0);
+    }
 
     Vec2 ist_er_schon_drin{175, 210};
     if(rec.isInside(ist_er_schon_drin) == true){
