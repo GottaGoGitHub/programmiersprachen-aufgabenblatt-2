@@ -197,7 +197,8 @@ TEST_CASE("test_rgb", "[rgb]"){
 TEST_CASE("test_rec_circumference", "[rec_circumference]"){
   Vec2 a{1, 1};
   Vec2 b{2, 2};
-  Rectangle rec1{a, b};
+  rgb color{0.5, 0.5, 0.5};
+  Rectangle rec1{a, b, color};
   Rectangle rec2;
   REQUIRE(rec1.circumference(rec1) == Approx(8));
   REQUIRE(rec2.circumference(rec2) == 2);
@@ -205,7 +206,8 @@ TEST_CASE("test_rec_circumference", "[rec_circumference]"){
 TEST_CASE("test_circ_circumference", "[circ_circumference]"){
   Vec2 center{5, 5};
   float radius = 3.5;
-  Circle circ1{center, radius};
+  rgb color{0.5, 0.5, 0.5};
+  Circle circ1{center, radius, color};
   Circle circ2;
   REQUIRE(circ1.circumference(circ1) == Approx(21.991148575129));
   REQUIRE(circ2.circumference(circ2) == Approx(2 * M_PI));
