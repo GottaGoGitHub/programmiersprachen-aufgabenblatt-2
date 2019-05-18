@@ -1,0 +1,13 @@
+std :: map < string , int > matrikelnummern ;
+// Hinzufuegen von vielen Studenten
+matrikelnummern [ " Max Mustermann " ] = 12345;
+matrikelnummern [ " Erika Mustermann " ] = 23523;
+// ...
+exmatrikulation ( matrikelnummer [ " Fred Fuchs " ]);
+
+Das Problem im oberen Code ist, dass Fred Fuchs nicht initialisiert wurde.
+
+Wenn man versucht ein Element aus set löscht, welches nicht in set ist,
+dann tut die Funktion exmatrikulation 0 returnen.
+Normalerweise wird bei einer erase Funktion nach dem Löschen 1 returned, ist das Element
+nicht vorhanden, wird 0 returned.
