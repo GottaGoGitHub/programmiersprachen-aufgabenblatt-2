@@ -79,6 +79,21 @@ int main(){
     for(int index: out){
         std::cout << index << std::endl;
     }
+
+    //task 3.3:
+    for(int i: liste){
+        if(amount.find(i) == amount.end()){
+            amount[i] = 1;
+        }
+        else{
+            amount[i] += 1;
+        }
+    }
+
+    //prints amount:
+    for(auto const& pair_of_ints: amount){
+        std::cout << pair_of_ints.first << " is inside the list " << pair_of_ints.second << " times." << std::endl;
+    }
     
     return 0;
 }
