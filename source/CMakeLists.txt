@@ -4,6 +4,7 @@ add_executable(example
   glew.c
   example.cpp
   )
+
 target_link_libraries(example
   glfw
   ${GLFW_LIBRARIES}
@@ -23,5 +24,5 @@ target_link_libraries(tests
   nanovg
   ${OPENGL_LIBRARIES}
   )
-
-
+  
+add_executable(aufgabe23 aufgabe_2_und_3.cpp)
