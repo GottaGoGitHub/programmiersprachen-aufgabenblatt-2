@@ -26,3 +26,5 @@ target_link_libraries(tests
   )
   
 add_executable(aufgabe23 aufgabe_2_und_3.cpp)
+
+add_executable(aufgabe41 aufgabe_4_1.cpp)

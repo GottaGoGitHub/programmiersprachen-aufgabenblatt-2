@@ -55,9 +55,11 @@ int main(int argc, char* argv[])
 
     
 
+    
     Vec2 circle_center{550, 300};
     Circle circle{circle_center, 100, red};
-    circle.draw(win, red, 3.5);
+    //circle.draw(win, red, 3.5);
+    
 
     Vec2 point{500, 250}; 
     if(circle.isInside(point)==true){
