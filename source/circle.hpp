@@ -55,6 +55,15 @@ class Circle{
         std::string getName() const{
             return name_;
         }
+        bool operator<(Circle const& circle)const{
+            return(radius_ < circle.radius_);
+        }
+        bool operator>(Circle const& circle)const{
+            return(radius_ > circle.radius_);
+        }
+        bool operator==(Circle const& circle)const{
+            return(radius_ == circle.radius_);
+        }
     private:
         std::string name_;
         float radius_;
