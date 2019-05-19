@@ -35,8 +35,10 @@ deque: optimiertes einfuegen am Anfang und loeschen am Ende perfekt fuer FIFO
 #include <list>
 #include <set>
 #include <map>
+#include <vector>
 #include <iostream>
 #include <time.h>
+#include <stdlib.h>
 
 
 
@@ -93,6 +95,13 @@ int main(){
     //prints amount:
     for(auto const& pair_of_ints: amount){
         std::cout << pair_of_ints.first << " is inside the list " << pair_of_ints.second << " times." << std::endl;
+    }
+    
+    //task 10
+    std::vector<unsigned int> new_vector;
+    std::copy(std::begin(liste), std::end(liste), std::back_inserter(new_vector));
+    for (std::vector<unsigned int>::const_iterator i = new_vector.begin(); i != new_vector.end(); ++i){
+        std::cout << *i << ' ';
     }
     
     return 0;
