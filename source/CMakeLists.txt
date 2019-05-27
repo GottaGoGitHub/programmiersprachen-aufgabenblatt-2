@@ -17,7 +17,7 @@ add_dependencies(example glfw nanovg ${COPY_BINARY})
   
 add_executable(aufgabe23 aufgabe_2_und_3.cpp)
 
-#add_executable(aufgabe41 aufgabe_4_1.cpp)
+add_executable(aufgabe41 aufgabe_4_1.cpp)
 
 add_executable(aufgabe6 aufgabe_6.cpp)
 
